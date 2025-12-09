@@ -78,58 +78,35 @@
         </div>
         <button class="btn-login" onclick="login()">Login</button>
     </div>
-    <script>
-    function login() {
-        const username = document.getElementById('username').value.trim();
-        const password = document.getElementById('password').value.trim();
-        const errorMsg = document.getElementById('errorMsg');
+<script>
+function login() {
+    const username = document.getElementById('username').value.trim();
+    const password = document.getElementById('password').value.trim();
+    const errorMsg = document.getElementById('errorMsg');
 
-        
-        
+    const users = [
+        { nama: "ADMIN", idAnggota: "SHINZZEI", username: "admin", password: "123456" },
+        { nama: "NIA", idAnggota: "242510364", username: "nia", password: "nia123" },
+        { nama: "ALYA", idAnggota: "242510300", username: "alya", password: "alya123" },
+        { nama:"admin cisat", idAnggota:"99999", username:"adminaja", password:"admin123", role:"admin" }
+    ];
 
-        
-        const users = [
-            {
-                nama: "ADMIN",
-                idAnggota: "SHINZZEI",
-                username: "admin",
-                password: "123456"
-            },
-            {
-                nama: "NIA",
-                idAnggota: "242510364",
-                username: "nia",
-                password: "nia123"
-            },
-            {
-                nama: "ALYA",
-                idAnggota: "242510300",
-                username: "alya",
-                password: "alya123"
-            },
-            {
-                nama:"admin cisat",
-                idAnggota:"99999",
-                username:"adminaja",
-                password:"admin123",
-                role:"admin"
+    // cek username dan password
+    const user = users.find(u => u.username === username && u.password === password);
 
-            }
-        ];
-
-        
-       
-};
-
-            window.location.href ='dashboard.html';
-        } else {
-            errorMsg.style.display = 'block';
-        }
+    if (user) {
+        // login berhasil → pindah halaman
+        window.location.href = 'dashboard.html';
+    } else {
+        // login gagal → munculkan pesan error
+        errorMsg.style.display = 'block';
     }
+}
 </script>
     
 </body>
 </html>
+
 
 
 
