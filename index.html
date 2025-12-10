@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>welcome to website osis</title>
+    <title>welcome to web osis cisat</title>
     <style>
         * { margin:0; padding:0; box-sizing:border-box; }
         body {
@@ -24,7 +24,7 @@
         }
         .login-card h2 {
             margin-bottom: 1.5rem;
-            color: #1e40af;
+            color: #ef4f0b;
         }
         .input-group {
             margin-bottom: 1.5rem;
@@ -34,12 +34,12 @@
             display:block;
             margin-bottom:0.5rem;
             font-weight:600;
-            color:#1f2937;
+            color:#1a2028;
         }
         .input-group input {
             width:100%;
             padding:0.75rem;
-            border:2px solid #cbd5e1;
+            border:2px solid #1365ca;
             border-radius:0.5rem;
             font-size:1rem;
         }
@@ -48,14 +48,14 @@
             padding:0.75rem;
             border:none;
             border-radius:0.5rem;
-            background:#1e40af;
-            color:white;
+            background:hsla(0, 0%, 0%, 0.893);
+            color:rgb(243, 94, 1);
             font-weight:600;
             font-size:1rem;
             cursor:pointer;
             transition:0.2s;
         }
-        .btn-login:hover { background:#1e3a8a; }
+        .btn-login:hover { background:#00000069; }
         .error-msg {
             color:#ef4444;
             font-size:0.9rem;
@@ -67,47 +67,62 @@
 <body>
     <div class="login-card">
         <h2>Login OSIS</h2>
-        <div class="error-msg" id="errorMsg">username atau password salah!</div>
+        <div class="error-msg" id="errorMsg">Username atau Password salah!</div>
         <div class="input-group">
             <label>Username</label>
-            <input type="text" id="username" placeholder="masukan username">
+            <input type="text" id="username" placeholder="masukkan username">
         </div>
         <div class="input-group">
             <label>Password</label>
-            <input type="password" id="password" placeholder="masukan password">
+            <input type="password" id="password" placeholder="masukkan password">
         </div>
         <button class="btn-login" onclick="login()">Login</button>
     </div>
-<script>
-function login() {
-    const username = document.getElementById('username').value.trim();
-    const password = document.getElementById('password').value.trim();
-    const errorMsg = document.getElementById('errorMsg');
+    <script>
+    function login() {
+        const username = document.getElementById('username').value.trim();
+        const password = document.getElementById('password').value.trim();
+        const errorMsg = document.getElementById('errorMsg');
+        
 
-    const users = [
-        { nama: "ADMIN", idAnggota: "SHINZZEI", username: "admin", password: "123456" },
-        { nama: "NIA", idAnggota: "242510364", username: "nia", password: "nia123" },
-        { nama: "ALYA", idAnggota: "242510300", username: "alya", password: "alya123" },
-        { nama:"admin cisat", idAnggota:"99999", username:"adminaja", password:"admin123", role:"admin" }
-    ];
+        
+        const users = [
+            {
+                nama: "ADMIN",
+                idAnggota: "SHINZZEI",
+                username: "admin",
+                password: "123456"
+            },
+            {
+                nama: "NIA",
+                idAnggota: "242510364",
+                username: "nia",
+                password: "nia123"
+            },
+            {
+                nama: "ALYA",
+                idAnggota: "242510300",
+                username: "alya",
+                password: "alya123"
+            }
+        ];
 
-    // cek username dan password
-    const user = users.find(u => u.username === username && u.password === password);
+        
+        const user = users.find(u => u.username === username && u.password === password);
 
-    if (user) {
-        // login berhasil → pindah halaman
-        window.location.href = 'dashboard.html';
-    } else {
-        // login gagal → munculkan pesan error
-        errorMsg.style.display = 'block';
+        if(user) {
+            
+            localStorage.setItem('userData', JSON.stringify({
+                nama: user.nama,
+                idAnggota: user.idAnggota
+            }));
+
+            window.location.href = 'dashboard.html';
+        } else {
+            errorMsg.style.display = 'block';
+        }
     }
-}
 </script>
     
 </body>
 </html>
-
-
-
-
-
