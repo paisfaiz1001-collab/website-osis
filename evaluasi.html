@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evaluasi Kegiatan OSIS</title>
+    <style>
+        body { font-family: Arial; background:#f4f6f9; padding:20px; }
+        .container { background:#fff; padding:25px; border-radius:10px; max-width:800px; margin:auto; }
+        input, select, textarea {
+            width:100%; padding:10px; margin-bottom:15px;
+            border:1px solid #ccc; border-radius:7px;
+        }
+        button {
+            background:#007bff; color:#fff; padding:12px 20px;
+            border:none; border-radius:7px; cursor:pointer;
+        }
+        button:hover { background:#0056b3; }
+        h2 { text-align:center; margin-bottom:20px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Form Evaluasi Kegiatan OSIS</h2>
+
+        <form action="simpan_evaluasi.php" method="POST" enctype="multipart/form-data">
+
+            <h3>Informasi Kegiatan</h3>
+            <input type="text" name="nama_kegiatan" placeholder="Nama kegiatan" required>
+            <input type="date" name="tanggal" required>
+            <input type="text" name="divisi" placeholder="Divisi penanggung jawab" required>
+            <input type="text" name="ketua_pelaksana" placeholder="Ketua Pelaksana" required>
+            <input type="number" name="anggota_osis" placeholder="anggota" required>
+
+            <h3>Penilaian (1-5)</h3>
+            <select name="nilai_perencanaan">
+                <option disabled selected>Perencanaan</option>
+                <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+            </select>
+
+            <select name="nilai_koordinasi">
+                <option disabled selected>Koordinasi Panitia</option>
+                <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+            </select>
+
+
+            <select name="nilai_dokumentasi">
+                <option disabled selected>Dokumentasi</option>
+                <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+            </select>
+
+            <select name="nilai_keamanan">
+                <option disabled selected>Keamanan</option>
+                <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
+            </select>
+
+            <h3>Evaluasi</h3>
+            <textarea name="apa_yang_baik" placeholder="Hal yang berjalan baik"></textarea>
+            <textarea name="kendala" placeholder="Kendala kegiatan"></textarea>
+            <textarea name="solusi" placeholder="Solusi yang dilakukan"></textarea>
+            <textarea name="saran" placeholder="Saran untuk kegiatan berikutnya"></textarea>
+            <textarea name="kesimpulan" placeholder="Kesimpulan"></textarea>
+
+            <button type="submit">Simpan Evaluasi</button>
+        </form>
+    </div>
+</body>
+</html>
